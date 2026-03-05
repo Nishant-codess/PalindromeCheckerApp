@@ -116,7 +116,7 @@ This project intentionally mirrors real-world software growth:
     Bash
 
     ```
-    git clone <repository-url>
+    git clone https://github.com/Nishant-codess/PalindromeCheckerApp
 
     ```
 
