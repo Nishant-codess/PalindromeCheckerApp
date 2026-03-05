@@ -2,31 +2,24 @@
  *
  * MAIN CLASS - PalindromeCheckerApp
  *
- * Use Case 11: Object-Oriented Palindrome Service
+ * Use Case 12: Strategy Pattern for Palindrome Algorithms
  *
- * Description:
- * Demonstrates encapsulation by delegating palindrome
- * logic to PalindromeChecker class.
+ * Demonstrates runtime strategy injection.
  *
  * @author Nishant_Ranjan
- * @version 11.0
+ * @version 12.0
  */
 
 public class PalindromeCheckerApp {
 
-    /**
-     * Application entry point for UC11.
-     *
-     * @param args Command-line arguments
-     */
     public static void main(String[] args) {
 
-        String input = "A man a plan a canal Panama";
+        String input = "madam";
 
-        // Create service object
-        PalindromeChecker checker = new PalindromeChecker();
+        // Inject strategy dynamically
+        PalindromeStrategy strategy = new StackStrategy();
 
-        boolean result = checker.checkPalindrome(input);
+        boolean result = strategy.check(input);
 
         System.out.println("Input : " + input);
 
