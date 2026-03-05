@@ -2,31 +2,53 @@
  *
  * MAIN CLASS - PalindromeCheckerApp
  *
- * Use Case 12: Strategy Pattern for Palindrome Algorithms
+ * Use Case 13: Performance Comparison
  *
- * Demonstrates runtime strategy injection.
+ * Description:
+ * Measures execution performance of
+ * different palindrome algorithms.
+ *
+ * Uses System.nanoTime() for benchmarking.
  *
  * @author Nishant_Ranjan
- * @version 12.0
+ * @version 13.0
  */
 
 public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        String input = "madam";
+        // Large test input for better benchmarking
+        String input = "madam".repeat(10000);
 
-        // Inject strategy dynamically
-        PalindromeStrategy strategy = new StackStrategy();
+        // Strategy 1 - Stack
+        PalindromeStrategy stackStrategy = new StackStrategy();
 
-        boolean result = strategy.check(input);
+        long startStack = System.nanoTime();
+        boolean stackResult = stackStrategy.check(input);
+        long endStack = System.nanoTime();
 
-        System.out.println("Input : " + input);
+        long stackDuration = endStack - startStack;
 
-        if (result) {
-            System.out.println("Result : The string is a Palindrome.");
-        } else {
-            System.out.println("Result : The string is NOT a Palindrome.");
-        }
+        // Strategy 2 - Two Pointer
+        PalindromeStrategy twoPointerStrategy = new TwoPointerStrategy();
+
+        long startTwoPointer = System.nanoTime();
+        boolean twoPointerResult = twoPointerStrategy.check(input);
+        long endTwoPointer = System.nanoTime();
+
+        long twoPointerDuration = endTwoPointer - startTwoPointer;
+
+        // Display results
+        System.out.println("Input length : " + input.length());
+
+        System.out.println("\nStack Strategy Result : " + stackResult);
+        System.out.println("Stack Execution Time  : " + stackDuration + " ns");
+
+        System.out.println("\nTwo Pointer Result    : " + twoPointerResult);
+        System.out.println("Two Pointer Time      : " + twoPointerDuration + " ns");
+
+        System.out.println("\nPerformance Difference (ns) : "
+                + Math.abs(stackDuration - twoPointerDuration));
     }
 }
