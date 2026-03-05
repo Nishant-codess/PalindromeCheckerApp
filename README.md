@@ -7,6 +7,7 @@
 The **Palindrome Checker Application** is a structured Java project that demonstrates the systematic evolution of palindrome validation techniques --- from foundational logic to advanced software design patterns and performance benchmarking.
 
 This repository reflects a clean engineering progression:
+
 **Basic Logic** → **Data Structures** → **Recursion** → **Object-Oriented Design** → **Strategy Pattern** → **Algorithm Benchmarking**
 
 It is designed as both a data structures learning project and a software architecture maturity demonstration.
